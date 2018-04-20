@@ -13,7 +13,13 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
   PlayerData = xPlayer
 end)
 
------
+----- Kommando
+
+RegisterCommand("guntest", function(source)
+    TriggerEvent("esx_guntest:checkGun", source)
+end, false)
+
+----- Kod
 
 RegisterNetEvent('esx_guntest:hasShotGun')
 AddEventHandler('esx_guntest:hasShotGun', function()
@@ -50,10 +56,6 @@ AddEventHandler('esx_guntest:checkGun', function(source)
 		ESX.ShowNotification('Ingen person i närheten.')
 	end
 end)
-
-RegisterCommand("guntest", function(source)
-    TriggerEvent("esx_guntest:checkGun", source)
-end, false)
 
 Citizen.CreateThread(function()
 	while true do
