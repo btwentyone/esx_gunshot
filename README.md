@@ -6,7 +6,8 @@ Makes you able to perform a GSR-test (gunshot residue) to check whether a citize
 Upon installation of the script everyone got the possibility to check for GSR with the command /guntest, se row 16-21 in client.lua. To implement this for police only in their menu (esx_policejob), please see below.
 
 **1.** Delete the rows 16-21 in client.lua
-**2.** Go to the following in esx_policejob
+
+**2.** Go to the following row in esx_policejob client.lua
 ```LUA
 title    = _U('citizen_interaction'),
 ```
