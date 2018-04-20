@@ -20,7 +20,8 @@ ESX.UI.Menu.Open(
     elements = {
       {label = _U('id_card'),       value = 'identity_card'},
       {label = _U('search'),        value = 'body_search'},
-      {label = 'GSR-test',        value = 'gsr'}, -- Ny knapp tillagd här
+      -- Ny knapp tillagd här
+      {label = 'GSR-test',        value = 'gsr'}, 
     },
   },
   function(data2, menu2)
@@ -29,15 +30,16 @@ ESX.UI.Menu.Open(
 **4.** Definera meny-itemet "gsr" under menyn
 ```LUA
 if data2.current.value == 'identity_card' then
-        OpenIdentityCardMenu(player)
+   OpenIdentityCardMenu(player)
 end
 
 if data2.current.value == 'body_search' then
-        OpenBodySearchMenu(player)
+   OpenBodySearchMenu(player)
 end
 
+-- GSR definieras här och triggar eventet "esx_guntest:checkGun" som ligger i client.lua
 if data2.current.value == 'gsr' then
-        TriggerEvent('esx_guntest:checkGun' source)
+   TriggerEvent('esx_guntest:checkGun' source)
 end
 ```
 
