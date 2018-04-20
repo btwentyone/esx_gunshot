@@ -3,9 +3,9 @@
 Makes you able to perform a GSR-test (gunshot residue) to check whether a citizen has fired a gun recently or not
 
 ## Implementation
-Upon installation of the script everyone got the possibility to check for GSR with the command /guntest, se row 16-21 in client.lua. To implement this for police only in their menu (esx_policejob), please see below.
+Upon installation of the script everyone got the possibility to check for GSR with the command /guntest, see row 16-21 in client.lua. To implement this for police only in their menu (esx_policejob), please see below.
 
-**1.** Delete the rows 16-21 in client.lua
+**1.** Delete the rows 16-21 in client.lua (esx_gunshot)
 
 **2.** Go to the following row in esx_policejob client.lua
 ```LUA
