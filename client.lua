@@ -20,6 +20,11 @@ AddEventHandler('esx_guntest:hasShotGun', function()
 	gunIsShot = true
 end)
 
+RegisterNetEvent('esx_guntest:hasNotShotGun')
+AddEventHandler('esx_guntest:hasNotShotGun', function()
+	gunIsShot = false
+end)
+
 
 RegisterNetEvent('esx_guntest:checkGun')
 AddEventHandler('esx_guntest:checkGun', function(source)
@@ -56,13 +61,17 @@ Citizen.CreateThread(function()
 		
 		if IsPedShooting(GetPlayerPed(-1)) then
 			hasShot = true
+		else
+			hasShot = false
 		end
 
 		if (hasShot) then
 			local player, distance = ESX.Game.GetClosestPlayer()
 			if distance ~= -1 and distance <= 3.0 then
-				TriggerServerEvent('esx_guntest:storeStatus', GetPlayerServerId(player))
+				TriggerServerEvent('esx_guntest:storeStatusTrue', GetPlayerServerId(player))
 			end
+		else
+			TriggerServerEvent('esx_guntest:storeStatusFalse', GetPlayerServerId(player))
 		end
 	end
 end)
