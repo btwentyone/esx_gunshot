@@ -13,13 +13,13 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
   PlayerData = xPlayer
 end)
 
------ Kommando
+----- Command
 
 RegisterCommand("guntest", function(source)
     TriggerEvent("esx_guntest:checkGun", source)
 end, false)
 
------ Kod
+----- Code
 
 RegisterNetEvent('esx_guntest:hasShotGun')
 AddEventHandler('esx_guntest:hasShotGun', function()
@@ -45,26 +45,24 @@ AddEventHandler('esx_guntest:checkGun', function(source)
 		ClearPedTasksImmediately(playerPed)
 
 		if (gunIsShot) then
-			ESX.ShowNotification('Personen har krutstänk på sina kläder')
+			ESX.ShowNotification('Traces of gunpowder was found')
 		else
-			ESX.ShowNotification('Inga spår av krut hittades')
+			ESX.ShowNotification('No traces of gunpowder was found')
 		end
 
 		gunIsShot = false	
 
 	else
-		ESX.ShowNotification('Ingen person i närheten.')
+		ESX.ShowNotification('No person nearby.')
 	end
 end)
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(1000)
+		Citizen.Wait(0)
 		
 		if IsPedShooting(GetPlayerPed(-1)) then
 			hasShot = true
-		else
-			hasShot = false
 		end
 
 		if (hasShot) then
