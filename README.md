@@ -40,7 +40,7 @@ end
 
 -- GSR is defined here, and triggers the clientevent "esx_guntest:checkGun"
 if data2.current.value == 'gsr' then
-   TriggerEvent('esx_guntest:checkGun' source)
+   TriggerEvent('esx_guntest:checkGun', source)
 end
 ```
 
